@@ -201,7 +201,7 @@
      * base font size: 18px 
      * vertical space unit : 32px
      */
-    --base-size        : 62.5%;
+    --base-size        : 67%;
     --multiplier       : 1;
     --base-font-size   : calc(1.8rem * var(--multiplier));
     --space            : calc(3.2rem * var(--multiplier));
@@ -4069,7 +4069,7 @@ body.search-is-visible .s-header__search-inner {
     z-index          : 2;
     display          : flex;
     align-items      : center;
-    font-size        : calc(var(--text-size) * 0.5556);
+    font-size        : calc(var(--text-size) * 0.65); /* 0.5556 */
     font-weight      : 600;
     text-transform   : uppercase;
     letter-spacing   : .3em;
@@ -4330,7 +4330,7 @@ body.search-is-visible .s-header__search-inner {
     }
 
     .hero__scroll-down span {
-        display : none;
+        /* display : none; */
     }
 
     .hero__entry-text {
@@ -4819,12 +4819,13 @@ body.search-is-visible .s-header__search-inner {
  *
  * ------------------------------------------------------------------- */
 .entry-wrap {
-    --entry-title-size        : 8rem;
+    --entry-title-size        : 9rem;
     --text-multiplier         : 1;
     --width-content-blog      : 1200px;
     --content-primary-padding : 15rem;
     max-width                 : var(--width-content-blog);
     padding-bottom            : var(--vspace-5);
+    word-break                : keep-all;
 }
 
 .entry-wrap .content-primary,
