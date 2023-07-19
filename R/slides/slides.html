@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Lauren Ipsum" />
+  <title>using R</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="slides_files/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+
+<link rel="stylesheet" href="slides_files/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <link rel="stylesheet" href="style.css"/>
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+    <script src="slides_files/header-attrs-2.6/header-attrs.js"></script>
+    <link href="slides_files/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+    <link href="slides_files/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">using R</h1>
+  <h1 class="subtitle">. . for data ————-&gt; analysis</h1>
+    <h2 class="author">Lauren Ipsum</h2>
+    <h3 class="date">18/10/2021</h3>
+</section>
+
+<section class="slide level2">
+
+<!----------------------------------------------------- Introduction ------------------------------------------------------>
+<p>Imagine you have a toolbox . . .</p>
+<div class="center">
+<ul>
+<li class="fragment"><img data-src="https://www.andreupholstery.co.uk/wp-content/uploads/2020/01/tools1.jpg" style="width:25.0%" alt="toolbox" /></li>
+</ul>
+</div>
+<ul>
+<li class="fragment"><p>. . . R is a a programming language and free software environment for statistical computing and graphics that can be one of the very useful tools for data analysis.</p></li>
+<li class="fragment"><p>But not only! The usecases of R are as wide as the imagination of its contributors (and there are many!).</p></li>
+</ul>
+<div>
+<ul>
+<li class="fragment"><img data-src="https://thumbs.gfycat.com/AcrobaticWelltodoAmethystinepython-max-1mb.gif" style="width:100.0%" alt="neerendingstory" /></li>
+</ul>
+</div>
+<!------------------------------------------------------ The "SO WHAT" ------------------------------------------------------->
+</section>
+<section id="section" class="title-slide slide level1">
+<h1></h1>
+<div class="centr_title one_line">
+<p>Why R ?</p>
+</div>
+</section>
+
+<section id="section-1" class="title-slide slide level1">
+<h1></h1>
+<div style="display: flex; justify-content:space-between;">
+<div class="center width_1000">
+<ul>
+<li class="fragment"><img data-src="https://www.meistertask.com/blog/wp-content/uploads/2019/05/Recurring-Tasks-796x398.png" alt="recurring" /></li>
+<li class="fragment">it’s great for recurring tasks and automation</li>
+</ul>
+</div>
+<div class="center width_1000">
+<ul>
+<li class="fragment"><img data-src="https://st.depositphotos.com/1910831/4040/i/600/depositphotos_40400343-stock-photo-senior-manager-is-giving-a.jpg" style="width:65.0%" alt="assurance &amp; handover" /></li>
+<li class="fragment">keeps processes documented and reproducible</li>
+</ul>
+</div>
+<div class="center width_1000">
+<ul>
+<li class="fragment"><img data-src="https://stillwaterassociates.com/wp-content/uploads/2018/09/process.png" style="width:55.0%" alt="Complete process" /></li>
+<li class="fragment">it can cover the entire analytics process from data cleaning to creating a final report</li>
+</ul>
+</div>
+</div>
+<div style="display: flex; justify-content:space-between;">
+<div class="center width_1000">
+<ul>
+<li class="fragment"><img data-src="https://dmslive.io/imgs/pages/newsAndArticles/articles/article0/img.jpeg" style="width:65.0%" alt="other languages" /></li>
+<li class="fragment">it can be used together with other data languages</li>
+</ul>
+</div>
+<div class="center width_1000">
+<ul>
+<li class="fragment"><img data-src="https://select-statistics.co.uk/wp-content/uploads/2019/07/BBC-ggplot-examples.png" style="width:75.0%" alt="Publication ready viz" /></li>
+<li class="fragment">it can create beautiful visualisations</li>
+</ul>
+</div>
+<div class="center width_1000">
+<ul>
+<li class="fragment"><img data-src="https://revolution-computing.typepad.com/.a/6a010534b1db25970b01bb096510cb970d-800wi" style="width:55.0%" alt="PowerBI" /></li>
+<li class="fragment">it can be used within other tools</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section id="how-we-use-r" class="title-slide slide level1">
+<h1>How we use R</h1>
+<p>R is a useful tool that can be used for the <strong>entire analysis</strong>, from <strong>data processing</strong> to the final <strong>report</strong>.</p>
+<div style="display: flex; justify-content:space-evenly;">
+<div class="center width_1000">
+<ul>
+<li class="fragment"><img data-src="https://analyticsindiamag.com/wp-content/uploads/2020/04/Data-preparation-tool.jpg" alt="Data analysis" /></li>
+</ul>
+<ol type="1">
+<li class="fragment">Data preparation, exploration, and analysis</li>
+</ol>
+</div>
+<div class="center width_1000">
+<ul>
+<li class="fragment"><img data-src="https://i.imgur.com/KjAayWd.jpg" alt="Data Viz" /></li>
+</ul>
+<ol start="2" type="1">
+<li class="fragment">Data visualisation</li>
+</ol>
+</div>
+<div class="center width_1000">
+<ul>
+<li class="fragment"><img data-src="https://epirhandbook.com/en/images/markdown/rmarkdown_overview.png" alt="Creating reports" /></li>
+</ul>
+<ol start="3" type="1">
+<li class="fragment">Creating reports</li>
+</ol>
+</div>
+</div>
+<!----------------------------------- 1. Data preparation, exploration, and analysis! ------------------------------------>
+</section>
+
+<section id="section-2" class="title-slide slide level1" data-background="#A6C4B8">
+<h1 data-background="#A6C4B8"></h1>
+<div class="centr_title three_lines">
+<p>1. Data preparation, exploration, and analysis</p>
+</div>
+</section>
+
+<section id="section-3" class="title-slide slide level1">
+<h1></h1>
+<p>Data can be easily loaded into R from various sources and data formats, including <strong>.csv</strong>, <strong>.xlsx</strong>, loaded from and to <strong>SQL</strong> database by using database packages.</p>
+<div class="center">
+<p><img data-src="https://www.business-science.io/assets/2021-02-18-R-is-for-research/Tidyverse_meme.png" style="width:35.0%" alt="tidyverse" /></p>
+</div>
+</section>
+
+<section>
+<section id="data-exploration" class="title-slide slide level1">
+<h1>Data exploration</h1>
+
+</section>
+<section id="data-exploration-1" class="slide level2">
+<h2>Data exploration</h2>
+<p><strong>Importing Data</strong></p>
+<div class="code">
+<p>some code lorem ipsum</p>
+<p><br></p>
+</div>
+</section>
+<section id="data-exploration-2" class="slide level2">
+<h2>Data exploration</h2>
+<p><strong>Exploring Data</strong></p>
+<div class="code">
+<p>head(Incidents)</p>
+</div>
+<div class="code">
+<p>str(Incidents)</p>
+</div>
+</section>
+<section id="data-exploration-3" class="slide level2">
+<h2>Data exploration</h2>
+<p><strong>Cleaning Data</strong></p>
+<div class="code">
+<ul>
+<li class="fragment">Incidents$Lane_Closure_Duration &lt;- as.numeric(Incidents$Lane_Closure_Duration)</li>
+<li class="fragment">Incidents &lt;- na.omit(Incidents)</li>
+<li class="fragment">Incidents &lt;- subset(Incidents, Lane_Closure_Duration &lt; quantile(Lane_Closure_Duration, 0.975))</li>
+</ul>
+</div>
+</section>
+<section id="data-exploration-4" class="slide level2">
+<h2>Data exploration</h2>
+<p><strong>Analysing Data</strong></p>
+<div class="code">
+<p>summary(Incidents)</p>
+</div>
+</section>
+<section id="data-exploration-5" class="slide level2">
+<h2>Data exploration</h2>
+<p><strong>Analysing Data</strong></p>
+<div class="code">
+<ul>
+<li class="fragment">ggplot(data = Incidents, mapping = aes(x = Lane_Closure_Duration/60)) +</li>
+<li class="fragment">geom_histogram(fill = “#004488”, colour = background_colour, binwidth = 5) +</li>
+<li class="fragment">scale_x_continuous(limits = c(0,60), breaks = seq(0,60,5)) +</li>
+<li class="fragment">labs(x = “Lane Closure (Minutes)”, y = “Number of Incidents”) +</li>
+<li class="fragment">facet_wrap(~ Incident_Type, ncol = 2)</li>
+</ul>
+</div>
+</section>
+<section id="data-exploration-6" class="slide level2">
+<h2>Data exploration</h2>
+</section>
+<section id="data-exploration-7" class="slide level2">
+<h2>Data exploration</h2>
+<div class="code">
+<p>ggplot(data = Incidents, mapping = aes(x = Lane_Closure_Duration/60)) +</p>
+<p>geom_histogram(fill = “#004488”, colour = background_colour, <strong>binwidth = 1</strong>) +</p>
+<p>scale_x_continuous(limits = c(0,60), breaks = seq(0,60,5)) +</p>
+<p>labs(x = “Lane Closure (Minutes)”, y = “Number of Incidents”) +</p>
+<p>facet_wrap(~ Incident_Type, ncol = 2)</p>
+</div>
+</section>
+<section id="data-exploration-8" class="slide level2">
+<h2>Data exploration</h2>
+</section></section>
+<section id="statistical-analysis" class="title-slide slide level1">
+<h1>Statistical Analysis</h1>
+<p>It is quick and easy to do all sorts of statistical analysis in R using functions which already exist.</p>
+<div class="code">
+<ul>
+<li class="fragment">chisq.test(x = c(523, 1608), p = c(1/4, 3/4), correct = T)</li>
+<li class="fragment">…</li>
+<li class="fragment">auto.arima(KSI_on_SRN)</li>
+<li class="fragment">…</li>
+<li class="fragment">lm(LLB_rate ~ EA_spacing + slip_spacing, data = ALR_data)</li>
+</ul>
+</div>
+<p><br></p>
+<ul>
+<li class="fragment">hypothesis testing, time series analysis, regression, text analysis, spatial analysis, network analysis, …</li>
+</ul>
+<!------------------------------------------------ 2. Data visualisation ------------------------------------------------->
+</section>
+
+<section id="section-4" class="title-slide slide level1" data-background="#E9CDC2">
+<h1 data-background="#E9CDC2"></h1>
+<div class="centr_title one_line">
+<p>2. Data visualisation</p>
+</div>
+<aside class="notes">
+<p>With R creating beautiful graphics is a breeze</p>
+<p>Using base R or external packages such as: <strong>ggplot2</strong>, <strong>tmap</strong>, or <strong>plotly</strong></p>
+<p><br></p>
+<ul>
+<li class="fragment"><p>sankey diagrams</p></li>
+<li class="fragment"><p>maps</p></li>
+<li class="fragment"><p>interactive bar charts</p></li>
+<li class="fragment"><p>word cloud</p></li>
+</ul>
+</aside>
+<!------------------------ Sankey -------------------------->
+<!-- # Sankey diagram -->
+<!-- ```{r cache=TRUE} -->
+<!-- theme_set(theme_sankey()) -->
+<!-- sankey -->
+<!-- ``` -->
+<!-- ## Sankey diagram -->
+<!-- ::: {.center} -->
+<!-- - ![import data](img\sankey_excel.jpg) -->
+<!-- - -->
+<!-- ```{r cache=TRUE} -->
+<!-- format_table(GM_bus[1:10, c("id", "origin", "destination", "x", "y", "people")], align = "l") -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- ## Sankey diagram -->
+<!-- **Processing code** -->
+<!-- ::: {.code} -->
+<!-- - readxl::excel_sheets(filename) -->
+<!-- - readxl::read_excel(filename, sheet = X)) -->
+<!-- - reshape2::melt(data, id.vars = c(), variable.name = ' ', value.name =  ' ') -->
+<!-- - ... -->
+<!-- - do.call('rbind', my_list) -->
+<!-- - dplyr::left_join(table1, table2, by = c(column_t1 = column_t2)) -->
+<!-- - dplyr::arrange(table, desc(column_name)) -->
+<!-- - split(table, table$column_name) -->
+<!-- - ... -->
+<!-- - ggforce::gather_set_data(table, 3:4) -->
+<!-- ::: -->
+<!-- ## Sankey diagram -->
+<!-- **Plotting code** -->
+<!-- <section class="code"> -->
+<!--   <span class="fragment" data-fragment-index="0">    ggplot(data = my_table,                       </span> -->
+<!--   <span class="fragment" data-fragment-index="1">    mapping = aes(x =                             </span> -->
+<!--   <span class="fragment" data-fragment-index="2">    x,                                            </span> -->
+<!--   <span class="fragment" data-fragment-index="3">    id = id,                                      </span> -->
+<!--   <span class="fragment" data-fragment-index="4">    split = y,                                    </span> -->
+<!--   <span class="fragment" data-fragment-index="5">    value = people))                              </span> -->
+<!--   <span class="fragment" data-fragment-index="6">    +                                             </span> -->
+<!--   <br> -->
+<!--   <span class="fragment" data-fragment-index="7">    &nbsp;&nbsp; geom_parallel_sets(mapping =     </span> -->
+<!--   <span class="fragment" data-fragment-index="8">    aes(fill = destination))                      </span> -->
+<!--   <span class="fragment" data-fragment-index="9">    +                                             </span> -->
+<!--   <br> -->
+<!--   <span class="fragment" data-fragment-index="10">  &nbsp;&nbsp;   geom_parallel_sets_axes(axis.width = 0.75, fill = NA) + </span> -->
+<!--   <br> -->
+<!--   <span class="fragment" data-fragment-index="11">  &nbsp;&nbsp;   geom_parallel_sets_labels(colour = 'white', angle = 0, size = 2.8) + </span> -->
+<!--   <br> -->
+<!--   <span class="fragment" data-fragment-index="12">  &nbsp;&nbsp;   scale_fill_manual(values = my_colours(length(unique(my_table$destination)))) + </span> -->
+<!--   <br> -->
+<!--   <span class="fragment" data-fragment-index="13">  &nbsp;&nbsp;   guides(fill = FALSE) +          </span> -->
+<!--   <br> -->
+<!--   <span class="fragment" data-fragment-index="14">  &nbsp;&nbsp;   ggtitle('Commuting by bus')     </span> -->
+<!-- </section> -->
+<!-- <br> -->
+<!-- ```{r cache=TRUE} -->
+<!-- format_table(GM_bus[1:6, c("id", "origin", "destination", "x", "y", "people")], align = "l") -->
+<!-- ``` -->
+<!-- ## Sankey diagram -->
+<!-- ```{r cache=TRUE} -->
+<!-- sankey -->
+<!-- ``` -->
+<!------------------------ some memes -------------------------->
+</section>
+
+<section id="section-5" class="title-slide slide level1" data-background="https://i.gifer.com/6rI.gif">
+<h1 data-background="https://i.gifer.com/6rI.gif"></h1>
+<!------------------------------------------------- 3. Creating reports -------------------------------------------------->
+</section>
+
+<section id="section-6" class="title-slide slide level1" data-background="#F2C67F">
+<h1 data-background="#F2C67F"></h1>
+<div class="centr_title one_line">
+<p>3. Creating reports</p>
+</div>
+</section>
+
+<section>
+<section id="rmarkdown" class="title-slide slide level1">
+<h1>RMarkdown</h1>
+<div class="center">
+<p><img data-src="https://epirhandbook.com/en/images/markdown/rmarkdown_overview.png" alt="Creating reports" /></p>
+</div>
+</section>
+<section id="how-to-create-rmarkdown-report" class="slide level2">
+<h2>How to create RMarkdown report</h2>
+<p>File with a <strong>.Rmd</strong> extension</p>
+<p>Structure:</p>
+<ul>
+<li class="fragment"><p><img data-src="img/rmarkdown_header1.jpg" alt="RMarkdown_header" /></p></li>
+<li class="fragment"><p>ioslides_presentation, word_document, pdf_document,…</p></li>
+<li class="fragment"><p><img data-src="img/rmarkdown_header2.jpg" alt="RMarkdown_header" /></p></li>
+</ul>
+<!----------------------------------------------------- R vs Python ------------------------------------------------------>
+</section></section>
+<section id="section-7" class="title-slide slide level1" data-background="#ffffff">
+<h1 data-background="#ffffff"></h1>
+<div class="centr_title three_lines">
+<p>…and what about Python…?</p>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Py" /></p>
+</div>
+</section>
+
+<section>
+<section id="section-8" class="title-slide slide level1">
+<h1></h1>
+<!-- Python ![Py](https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg){width=4%} -->
+<p><br><br></p>
+<div style="display: flex; justify-content:space-between;">
+<div class="center width_1500">
+<ul>
+<li class="fragment"><img data-src="https://static.lwn.net/images/2018/pls-vanrossum.jpg" alt="Guido" /></li>
+</ul>
+</div>
+<div class="center width_1500">
+<p><br></p>
+<ul>
+<li class="fragment"><img data-src="https://78.media.tumblr.com/fdfe6cd7dd17cbb20f86290ac111a4c8/tumblr_p964e1wuWi1we0p6lo1_r1_500.gif" alt="Monty Python" /></li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Python is an open-source programming language similar to R in many functionalities especially since the development of numpy and pandas.</p>
+<ul>
+<li class="fragment"><p>developed by Guido van Rossum in 1980s</p></li>
+<li class="fragment"><p>an important goal of Python’s developers is keeping it fun to use</p></li>
+<li class="fragment"><p>simpler, less-cluttered syntax and grammar while giving developers a choice in their coding methodology</p></li>
+</ul>
+</aside>
+</section>
+<section id="differences" class="slide level2">
+<h2>Differences</h2>
+<p><br></p>
+<div style="display: flex; justify-content:space-between;">
+<div class="width_1500">
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Py" /></p>
+<ul>
+<li class="fragment">computer scientists</li>
+<li class="fragment">machine learning</li>
+<li class="fragment">productionising analysis</li>
+<li class="fragment">app development</li>
+</ul>
+</div>
+<div class="width_1500">
+<p><img data-src="https://www.r-project.org/logo/Rlogo.svg" style="width:21.0%" alt="R" /></p>
+<ul>
+<li class="fragment">statistitians</li>
+<li class="fragment">similarities with SQL (dplyr package)</li>
+<li class="fragment">producing reports</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p><strong>Python</strong> was developed by computer scientists and originally was not meant for data analytics</p>
+<ul>
+<li class="fragment"><p>better for machine learning than R</p></li>
+<li class="fragment"><p>better for productionising analysis</p></li>
+<li class="fragment"><p>wider use including app development</p></li>
+</ul>
+<p><strong>R</strong> was primarily developed by statistitians and for statistics and data analytics</p>
+<ul>
+<li class="fragment"><p>easier to do quick analysis</p></li>
+<li class="fragment"><p>advantage when it comes to producing reports thanks to R Markdown</p></li>
+</ul>
+</aside>
+</section>
+<section id="similarities" class="slide level2">
+<h2>Similarities</h2>
+<div style="display: flex; justify-content:space-between;">
+<div>
+<ul>
+<li class="fragment">open-source</li>
+<li class="fragment">extensible with modules (packages)</li>
+<li class="fragment">easy to learn (for non programmers)</li>
+<li class="fragment">used for automation</li>
+<li class="fragment">used for data analysis</li>
+<li class="fragment">supporting community</li>
+<li class="fragment">used in many industries</li>
+</ul>
+</div>
+<div class="center">
+<ul>
+<li class="fragment"><img data-src="https://memegenerator.net/img/instances/73620557/what-if-i-told-you-you-can-learn-both-python-and-r.jpg" style="width:80.0%" alt="R Py" /></li>
+</ul>
+</div>
+</div>
+<!------------------------------------------------------ install R ------------------------------------------------------->
+</section></section>
+<section id="section-9" class="title-slide slide level1">
+<h1></h1>
+<div class="centr_title one_line">
+<p>How to install <img data-src="https://www.r-project.org/logo/Rlogo.svg" style="width:16.0%" alt="R" /></p>
+</div>
+</section>
+
+<section>
+<section id="how-to-get-r" class="title-slide slide level1">
+<h1>How to get R</h1>
+<p><br></p>
+<div style="display: flex; justify-content:space-between;">
+<div class="center width_1500">
+<p>Link to install R:</p>
+<p><a href="https://cran.r-project.org/mirrors.html" target="_blank"><img data-src="https://www.r-project.org/logo/Rlogo.svg" style="width:24.0%" alt="R" /></a></p>
+<ul>
+<li class="fragment">install R first</li>
+</ul>
+</div>
+<div class="center width_1500">
+<p>Link to install R Studio:</p>
+<p><a href="https://www.rstudio.com/products/rstudio/download/" target="_blank"><img data-src="https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png" style="width:55.0%" alt="RStudio" /></a></p>
+<ul>
+<li class="fragment">RStudio is a graphical user interface (GUI) for R and makes work with R much more enjoyable</li>
+<li class="fragment">install after R</li>
+</ul>
+</div>
+</div>
+<p><br><br></p>
+</section>
+<section id="learning-resources" class="slide level2">
+<h2>Learning Resources</h2>
+<p><strong>Books/documents</strong></p>
+<div class="small">
+<p><a href="https://r4ds.had.co.nz/" target="_blank"><strong>R for Data Science (Hadley Wickham &amp; Garrett Grolemund)</strong></a></p>
+<p><a href="https://itsleeds.github.io/rrsrr/"><strong>Reproducible road safety research with R: A practical introduction (Robin Lovelace)</strong></a></p>
+<p><a href="https://departmentfortransport.github.io/R-cookbook/"><strong>DfT R Cookbook</strong></a></p>
+<p><a href="https://rstudio.com/resources/cheatsheets/"><strong>RStudio Cheatsheets</strong></a></p>
+</div>
+<p><strong>Forums and blogs</strong></p>
+<div class="small">
+<p><a href="https://stackoverflow.com/questions/tagged/r"><strong>Stack overflow</strong></a></p>
+<p><a href="https://community.rstudio.com/#"><strong>RStudio Community</strong></a></p>
+<p><a href="https://www.r-bloggers.com/"><strong>R-Bloggers</strong></a></p>
+</div>
+<p><strong>Courses</strong></p>
+<div class="small">
+<p><a href="https://rstudio.cloud/learn/primers"><strong>RStudio Primers</strong></a>, <a href="https://www.udemy.com/topic/r-programming-language/"><strong>Udemy</strong></a>, <a href="https://www.coursera.org/"><strong>Coursera</strong></a>, <a href="https://www.edx.org/"><strong>edX</strong></a>, <a href="https://www.datacamp.com/courses/free-introduction-to-r"><strong>DataCamp</strong></a>, <a href="https://www.codecademy.com/catalog/language/r"><strong>CodeCademy</strong></a></p>
+</div>
+<!------------------------------------------------------ Questions ------------------------------------------------------->
+</section></section>
+<section id="section-10" class="title-slide slide level1">
+<h1></h1>
+<!-- in case of using small image instead of the full screen one-->
+<div class="centr_img">
+<p><img data-src="http://images2.memedroid.com/images/UPLOADED6/4fe60a9e1bd3f.jpeg" style="width:75.0%" alt="Questions" /></p>
+</div>
+<aside class="notes">
+<ul>
+<li class="fragment"><p>do you use R?</p></li>
+<li class="fragment"><p>what are your views?</p></li>
+<li class="fragment"><p>would you welcome a working group?</p></li>
+</ul>
+</aside>
+</section>
+
+<section id="section-11" class="title-slide slide level1">
+<h1></h1>
+
+</section>
+    </div>
+  </div>
+
+  <script src="slides_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="slides_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: false,
+        // Transition style
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+        height: 720,
+
+
+
+        chalkboard: {
+          toggleNotesButton: false,
+          toggleChalkboardButton: false,
+          theme: 'blackboard',
+        },
+
+        keyboard: {
+          67: function() { RevealChalkboard.toggleNotesCanvas() },    // toggle notes canvas when 'c' is pressed
+          66: function() { RevealChalkboard.toggleChalkboard() }, // toggle chalkboard when 'b' is pressed
+          46: function() { RevealChalkboard.clear() },    // clear chalkboard when 'DEL' is pressed
+           8: function() { RevealChalkboard.reset() },    // reset chalkboard data on current slide when 'BACKSPACE' is pressed
+          68: function() { RevealChalkboard.download() }, // downlad recorded chalkboard drawing when 'd' is pressed
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'slides_files/reveal.js-3.3.0.1/plugin/notes/notes.js', async: true },
+          { src: 'slides_files/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
+          { src: 'slides_files/reveal.js-3.3.0.1/plugin/chalkboard/chalkboard.js', async: true },
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>
