@@ -4856,7 +4856,7 @@ body.search-is-visible .s-header__search-inner {
     font-size     : calc(var(--entry-title-size) * var(--text-multiplier));
     line-height   : 1.12;
     margin-top    : 0;
-    margin-bottom : var(--vspace-1);
+    margin-bottom : var(--vspace-1_75);
 }
 
 .entry__meta {
@@ -5058,7 +5058,7 @@ body.search-is-visible .s-header__search-inner {
 
 .post-nav a {
     font-family : var(--font-2);
-    font-size   : var(--text-xl);
+    font-size   : var(--text-lg);
     line-height : 1.158;
     color       : var(--color-text);
 }
