@@ -4075,7 +4075,8 @@ body.search-is-visible .s-header__search-inner {
     letter-spacing   : .3em;
     color            : black !important;
     position         : absolute;
-    bottom           : 4.4rem;
+    /* bottom           : 4.4rem; */
+    bottom           : 12rem;
     left             : calc(100% - 3rem);
     transform-origin : left bottom;
     transform        : rotate(-90deg);
@@ -4411,7 +4412,7 @@ body.search-is-visible .s-header__search-inner {
 
 .ss-home .s-content {
     /* padding-top : 0; */
-    padding-top: calc(6.5 * var(--space));
+    padding-top: calc(6 * var(--space));
 }
 
 /* --------------------------------------------------------------------
@@ -4644,10 +4645,50 @@ body.search-is-visible .s-header__search-inner {
     fill : black;
 }
 
+/* --------------------------------------------------------------------
+ * ## title social
+ * -------------------------------------------------------------------- */
+ .s-title__social {
+    list-style : none;
+    display    : flex;
+    margin     : 0;
+    justify-content: center;
+}
+
+.s-title__social li {
+    padding-left : 0;
+    margin-right : 1rem;
+    line-height  : 1;
+}
+
+.s-title__social li:last-child {
+    margin-right : 0;
+}
+
+.s-title__social svg {
+    height : 2rem;
+    width  : 2rem;
+}
+
+.s-title__social svg path {
+    fill : black;
+}
+
 /* ------------------------------------------------------------------- 
  * ## copyright
  * ------------------------------------------------------------------- */
-.ss-copyright span {
+ .ss-copyright {
+    /* display : inline-block; */
+    /* display:inline-flex; */
+    float: right;
+    /* position: relative; */
+    /* right: 100%; */
+    /* align-content: right; */
+    /* justify-self: flex-end; */
+    /* justify-content: flex-end; */
+}
+
+ .ss-copyright span {
     display : inline-block;
 }
 
@@ -4754,6 +4795,12 @@ body.search-is-visible .s-header__search-inner {
     }
 }
 
+@media screen and (max-width: 800px) {
+    .ss-copyright  {
+        float: left;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .s-footer__subscribe .mc-form {
         display : block;
@@ -4841,7 +4888,7 @@ body.search-is-visible .s-header__search-inner {
     max-width     : 1100px;
     margin-right  : auto;
     margin-left   : auto;
-    margin-bottom : var(--vspace-3);
+    margin-bottom : calc(0.75*var(--vspace-3));
 }
 
 .entry__header--narrow {
