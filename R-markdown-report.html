@@ -90,7 +90,7 @@
                             <header class="entry__header">
     
                                 <h1 class="entry__title">
-                                    Automating analytical reports with R&nbspMarkdown
+                                    Automating Analytical Reports with R&nbspMarkdown
                                 </h1>
 
                             </header>
@@ -99,21 +99,21 @@
 
                                 <div class="entry__content">
                                     <p class="lead">
-                                        Before the global Covid19 pandemic, I joined a local public speaking club to improve 
-                                        my communication and presentation skills. During my membership time, I also became a 
-                                        club officer helping other members with their speaking progress. Part of the learning 
-                                        was to receive written feedback in form of paper slips from other members after each 
-                                        speech. When the meetings moved from physical to virtual due to lockdown, our collection 
-                                        method also changed from hand-written paper slips to google forms. The club committee then reflected 
-                                        on the forms and reformulated questions that were asked. </p> 
+                                        Before the global Covid-19 pandemic, I joined a local public speaking club to enhance my 
+                                        communication and presentation skills. During my time as a member, I also served as a club 
+                                        officer, assisting others with their speaking progress. Traditionally, members provided 
+                                        written feedback on paper slips after each speech. However, when meetings transitioned 
+                                        from physical to virtual due to lockdown, our feedback collection method shifted from 
+                                        hand-written paper slips to Google Forms. Consequently, the club committee revised the 
+                                        feedback questions.</p> 
 
                                     <h3>Goal</h3>
                                     
                                     <p>
-                                        Having the new questions I realized it would be more useful for the speakers to see a visual 
-                                        progress of their speech rather than the spreadsheet shown in the following picture. 
-                                        The need for a more efficient presentation of the speech feedback led me to design an 
-                                        interactive report using the power of RMarkdown.
+                                        With the new questions in place, I realized that speakers would benefit more from visual 
+                                        progress reports rather than plain spreadsheets. This need for a more efficient and engaging 
+                                        presentation of speech feedback inspired me to design an interactive report using the 
+                                        capabilities of RMarkdown.
                                     </p>
                                     <img class="img-responsive" alt="" src="./images/R-report/excel-snapshot-2.jpg">
                                     <!-- <div class="row iframe">
@@ -124,49 +124,58 @@
                                     <h3>Process</h3>
                                     
                                     <p>
-                                        I set up the process so that it can create the report for one or more speakers at once using a for loop.
-                                        There are two main files to create the reports. The bulk of the processing is done
-                                        using an .rmd file which involves a few steps:
-                                        <ul>
-                                            <li>Filtering data for the selected speaker.</li>
-                                            <li>Data cleaning, removing missing values and duplicate records (which sometimes happens, 
-                                                likely due to connection
-                                                issues when submitting the google form) and extracting the speech date.</li>
-                                            <li>Splitting the data into scaled variables and text fields as they were processed differently in the 
-                                                following stages.</li>
-                                            <li>Reshaping the scaled variables and creating a stacked barplot.</li>
-                                            <li>Removing N/A records from the text fields to avoid blank lines in the final table.
-                                                These text fields were not mandatory so were sometimes left empty.</li>
-                                            <li>Creating an interactive table.</li>
-                                        </ul>
-                                        The second file is an R script that loads the spreadsheet, extracts the speaker names and 
-                                        speech titles and then calls the .rmd file for selected speakers.<br>
-                                        As the final "knitted" report is a HTML file, I also created a simple .css stylesheet 
-                                        that is linked to the .rmd file. I used it to define my own fonts, colours 
-                                        spacing and also a custom footer.
+                                        To automate the creation of these reports, I developed a process that can generate reports for 
+                                        one or more speakers simultaneously using a for loop. This involved two main files:
+                                        <ol>
+                                            <li>
+                                                <b>RMarkdown File (.rmd): </b>
+                                                This file handles the bulk of the processing through several steps:
+                                                <ul>
+                                                    <li><b>Filtering: </b>Data for the selected speaker is filtered.</li>
+                                                    <li><b>Data Cleaning: </b>Missing values and duplicate records (often due to connection issues 
+                                                        when submitting the Google Form) are removed, and the speech date is extracted.</li>
+                                                    <li><b>Data Splitting: </b>The data is divided into scaled variables and text fields, 
+                                                        as they are processed differently in subsequent stages.</li>
+                                                    <li><b>Reshaping: </b>The scaled variables are reshaped, and a stacked barplot is created.</li>
+                                                    <li><b>Text Fields: </b>N/A records are removed from the text fields to avoid blank lines in the 
+                                                        final table. These fields were optional, so they were sometimes left empty.</li>
+                                                    <li><b>Interactive Table: </b>An interactive table is created.</li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <b>R Script: </b>
+                                                This script loads the spreadsheet, extracts speaker names and speech titles, and then calls the .rmd 
+                                                file for the selected speakers.
+                                            </li>
+                                        </ol>
+                                        To enhance the final HTML report, I also created a simple .css stylesheet linked to the .rmd file, allowing 
+                                        for custom fonts, colors, spacing, and a unique footer.
                                     </p> 
 
 
                                     <h3>Result</h3>
 
                                     <p>
-                                    There are two possible outputs: html report (as shown below) with interactive elements, 
-                                    allowing the speaker to see the number of attendees who gave the speech a certain rating and 
-                                    a reactive table that highlights row over which the the viewer can hover for easier reading. 
-                                    The second output is a pdf report which is created by printing the html document. 
-                                    The code automatically produces all 
-                                    reports for the speakers without the necessity to create each document 
-                                    separately. 
-                                    <a href="https://github.com/martina-augustin/R-Markdown-report" target="_blank">The full code 
-                                    can be found here.</a>
+                                        The automated process produces two possible outputs:
+                                        <ol>
+                                            <li><b>HTML Report: </b>This interactive report allows speakers to see the number of attendees who rated 
+                                                their speech and includes a reactive table that highlights rows as the viewer hovers over them, making 
+                                                it easier to read.</li>
+                                            <li><b>PDF Report: </b>This is generated by printing the HTML document, providing a static version of the 
+                                                interactive report.</li>
+                                        </ol>
                                     </p>
-
                                     <!-- iframe height was sorted with the following js code: https://css-tricks.com/snippets/jquery/fit-iframe-to-content/
                     	                It seems to work well for a regular screen, however not so well for smaller screens. -->
                                     <div class="row iframe">
                                         <iframe src="R/RMarkdown/RMarkdown.html" class="row-iframe iframe-doc" scrolling="yes"
                                             onload="resizeIframe(this)"></iframe>
                                     </div>
+                                    <p>
+                                        The automated system ensures that all reports for the speakers are produced efficiently without the need to 
+                                        create each document separately. The complete code for this process can be found 
+                                        <a href="https://github.com/martina-augustin/R-Markdown-report" target="_blank">here</a>.
+                                    </p>
 
                                 </div> 
                                 <!-- end entry-content -->
@@ -175,13 +184,13 @@
                                     <div class="post-nav__prev">
                                         <a href="R-data-viz.html" rel="prev">
                                             <span>Prev</span>
-                                            Three graphs to analyse commuting patterns in the UK 
+                                            Three Graphs to Analyze Commuting Patterns in the UK
                                         </a>
                                     </div>
                                     <div class="post-nav__next">
                                         <a href="R-markdown-slides.html" rel="next">
                                             <span>Next</span>
-                                            Creating slides programmatically with R Markdown
+                                            Creating Slides Programmatically with R Markdown
                                         </a>
                                     </div>
                                 </div>

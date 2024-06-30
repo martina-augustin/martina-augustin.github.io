@@ -95,7 +95,7 @@
                             <header class="entry__header">
     
                                 <h1 class="entry__title">
-                                    Creating slides program&shy;mati&shy;cally with R&nbspMarkdown 
+                                    Creating Slides Program&shy;mati&shy;cally with R&nbspMarkdown
                                 </h1>
 
                                 <div class="entry__meta">
@@ -107,42 +107,39 @@
 
                                 <div class="entry__content">
                                     <p class="lead">
-                                        The following two examples show presentation slides made in a different fashion than the usual PowerPoint 
-                                        and the likes. Creating such slides may seem daunting as it requires knowledge of 
-                                        R and R Markdown, and ideally some <i>html</i> and <i>css</i> for better customization. 
-                                        The time to code this as compared to using regular 
-                                        'click' software may also be demotivating. <br> However I believe the results are worth the 
-                                        extra effort and, even with a limited knowledge of R, html or css, one can create a unique, 
-                                        engaging and appealing presentation. Perhaps just as importantly, should new data be available, data plots in the presentation
-                                        based on coding scripts can be updated by simply reloading the webpage, much to the image of a one-stop-shop for all reporting tasks
-                                        in contrast to the hassle of copy/paste new plots into Powerpoint slides. </p> 
+                                        Traditional presentation tools like PowerPoint dominate the scene, but there's a different, more dynamic way to 
+                                        create slides: using R and R Markdown. While this approach might seem intimidating, requiring some knowledge of 
+                                        R, HTML, and CSS, the results are often worth the effort. Even with limited coding knowledge, you can create 
+                                        unique, engaging, and visually appealing presentations. Plus, updating data plots becomes a breeze—just reload 
+                                        the webpage instead of copy-pasting new plots into PowerPoint slides.</p> 
 
                                     <h3>Example 1 - Presentation about R</h3>
                                     
-                                    <p>In my company, a few R enthusiasts and I presented to the team about 
-                                        using R for data analysis. We agreed that it would be a shame to speak about R and 
-                                        not directly show one of its numerous features: R Markdown for presenting the outputs.</p>
+                                    <p>In my company, a group of R enthusiasts, including myself, decided to present to our team about using R for data 
+                                        analysis. We believed it would be fitting to showcase R's capabilities by using R Markdown for the presentation.</p>
                                     
                                     <h5>Goal</h5>
                                     
-                                    <p>The goal was to show how R could be used for the entire analysis starting from data processing to the final slides.</p>
+                                    <p>Our objective was to demonstrate how R could be utilized for the entire process, from data processing to 
+                                        creating the final presentation slides.</p>
                                     
                                     <h5>Result</h5>
                                     
-                                    <p>Whilst there are multiple options to create slides with R Markdown, I used reveal.js for its appearance and options. 
-                                        <u><a href="https://revealjs.com/" target="_blank">Reveal.js</a></u> is a JavaScript library to create slides 
-                                        and it is also implemented in <u><a href="https://github.com/rstudio/revealjs" target="_blank">R package revealjs</a></u>. 
-                                        Some of its features applicable within R are:
+                                    <p>We chose reveal.js for our slides due to its polished appearance and robust features. 
+                                        <u><a href="https://revealjs.com/" target="_blank">Reveal.js</a></u> is a JavaScript library that facilitates the 
+                                        creation of slides and is available in the R package <u><a href="https://github.com/rstudio/revealjs" target="_blank">
+                                            revealjs</a></u>. Here are some features we utilized:
                                         <ul>
-                                            <li>different transition options between the slides, </li>
-                                            <li>changing slides (and sub-slides) in four possible directions; 
-                                                this is shown by the arrows on the bottom right corner, </li>
-                                            <li>zoom in on any slide by pressing 'Alt' key and left click, </li>
-                                            <li>switching to a blackboard (or a whiteboard) by pressing 'B' key, </li>
-                                            <li>'pause' the slides to shift audiences focus from the text and visuals to the speaker by pressing '.' </li>
-                                            <li>and 'Esc' key to give an overview of the slides and jump between slides.</li>
+                                            <li><b>Transition Options: </b>Different transition effects between slides.</li>
+                                            <li><b>Directional Slides: </b>Ability to change slides (and sub-slides) in four directions, indicated by arrows 
+                                                in the bottom right corner.</li>
+                                            <li><b>Zoom: </b>Zoom in on any slide by pressing the 'Alt' key and left-clicking.</li>
+                                            <li><b>Blackboard Mode: </b>Switch to a blackboard or whiteboard by pressing the 'B' key.</li>
+                                            <li><b>Pause Function: </b>Dim the slides to shift focus to the speaker by pressing the '.' key.</li>
+                                            <li><b>Overview Mode: </b>Press the 'Esc' key to view an overview of the slides and jump between them.</li>
                                         </ul> 
-                                        All of these features can be tested in the examples below. 
+                                        These features can be explored in the examples below. Navigate through the slides by clicking or using the keyboard 
+                                        arrows in all directions, as indicated by the options in the bottom right corner of the slides.
                                         <!-- and the code to produce the slides can be found <u><a href="https://github.com/mokosm/R-presentation" target="_blank">here</a></u>. -->
                                     </p>
                                     
@@ -155,43 +152,35 @@
                                         <iframe src="R/slides/slides.html" class="row-iframe iframe-slides" scrolling="no"
                                             onload="resizeIframe(this)"></iframe>
                                     </div>
-                                    
-                                    <p>N.B.: browse the slides by clicking or/and using the keyboard arrows in all directions, as prompted by the options 
-                                        shown in bottom right corner of the slides. </p>
 
                                     <h3>Example 2 - Quick report for Toastmasters meeting</h3>
 
-                                    <p>In this second example I used R Markdown with <i>reveal.js</i> to make an 'Ah counter' report. 
-                                        The role of the Ah counter in Toastmasters is to listen carefully throughout 
-                                        the meeting and record the number of 'filler words' (ah, em, err) for everyone speaking in the meeting. 
-                                        At the end the Ah counter gives a (generally verbal) report about everyone's use 
-                                        of filler words. These reports help participants to notice which words they overuse and help 
-                                        them track their progress over time.</p>
+                                    <p>In this second example, I used R Markdown with reveal.js to create an 'Ah counter' report for a Toastmasters meeting. 
+                                        The role of the Ah counter is to track and report the use of filler words (such as "ah," "um," "er") during the meeting.</p>
                                     
                                     <h5>Goal</h5>
                                     
-                                    <p>Preparing the report in R was a fun project to present the results a little differently and 
-                                        to give participants a visual hint of their filler words use. The challenge was also to make 
-                                        sure the data can be collected, processed and presented in a very limited time (within the 
-                                        duration of the meeting). </p>
+                                    <p>This project aimed to present the Ah counter's report in a visually engaging way, giving participants insight into 
+                                        their use of filler words. The challenge was to collect, process, and present the data within the meeting's duration.</p>
                                     
                                     <h5>Result</h5>
                                     
-                                    <p>The filler word counts were inserted into a prepared spreadsheet during the meeting as the participants spoke. 
-                                        Towards the end of the meeting shortly before the time for the Ah counter report, the code was run 
-                                        to generate the slides. The code takes the csv spreadsheet, transforms the data, constructs the plots 
-                                        and inserts words and counts in pre-set places. One example is the slide showing the top five 
-                                        filler words used in the meeting, or the slides generated for each participant who spoke without saying any filler word. 
-                                        The code to make the slides can be found <u><a href="https://github.com/martina-augustin/R-animated-slides" target="_blank">here</a></u>.
+                                    <p>As participants spoke, I entered their filler word counts into a prepared spreadsheet. Towards the end of the meeting, 
+                                        shortly before the Ah counter report, I ran the code to generate the slides. The code took the CSV spreadsheet, 
+                                        transformed the data, constructed plots, and inserted words and counts into predefined positions. For example, 
+                                        one slide showed the top five filler words used, while others highlighted participants who spoke without using 
+                                        any filler words. The complete code for creating these slides can be found 
+                                        <u><a href="https://github.com/martina-augustin/R-animated-slides" target="_blank">here</a></u>.
+                                    </p>
+                                    <p>
+                                        Navigate through the slides by clicking or using the keyboard arrows in all directions, as indicated by the 
+                                        options in the bottom right corner of the slides.
                                     </p>
                                     
                                     <div class="row iframe">
                                         <iframe src="R/slides2/AhCounter2.html" class="row-iframe iframe-slides" scrolling="no"
                                             onload="resizeIframe(this)"></iframe>
                                     </div>
-
-                                    <p>N.B.: browse the slides by clicking or/and using the keyboard arrows in all directions, as prompted by the options 
-                                        shown in bottom right corner of the slides. </p>
 
                                 </div> 
                                 <!-- end entry-content -->
@@ -200,7 +189,7 @@
                                     <div class="post-nav__prev">
                                         <a href="R-markdown-report.html" rel="prev">
                                             <span>Prev</span>
-                                            Automating analytical reports with R Markdown 
+                                            Automating Analytical Reports with R Markdown
                                         </a>
                                     </div>
                                     <!-- <div class="post-nav__next">

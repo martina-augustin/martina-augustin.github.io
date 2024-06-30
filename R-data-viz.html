@@ -93,7 +93,7 @@
                             <header class="entry__header">
     
                                 <h1 class="entry__title">
-                                    Three graphs to analyse commuting patterns in the UK
+                                    Three Graphs to Analyze Commuting Patterns in the UK
                                 </h1>
 
                             </header>
@@ -102,48 +102,52 @@
 
                                 <div class="entry__content">
                                     <p class="lead">
-                                        At the onset of the Covid-19 pandemic in early 2020, many workers transitioned to working from home, 
-                                        whilst others had to commute by private means, for fear of being contaminated in public 
-                                        transport. The question was, <i>what would happen once the lockdown ended and everyone 
-                                        would return to their workplace</i>. More importantly, what would happen if majority of workers 
-                                        who used to commute by public transport would then switch to private cars? </p> 
+                                        When the Covid-19 pandemic struck in early 2020, our daily routines changed dramatically. 
+                                        Many workers began working from home, while others chose to commute by private means to 
+                                        avoid potential contamination on public transport. This shift raised a critical question: 
+                                        <i>what would happen when lockdowns ended and everyone returned to their workplaces?</i> 
+                                        More intriguingly, what would occur if a significant number of workers who previously used 
+                                        public transport switched to private cars?</p> 
 
                                     <h3>Goal</h3>
                                     
-                                    <p>The goal was to analyse, visualise and to help understand which roads would be the most affected by 
-                                        commuters switching from public transport to private cars.</p>
+                                    <p>The primary goal of this project was to anticipate and understand which roads would be most 
+                                        affected if commuters transitioned from public transport to private cars. By visualizing and 
+                                        analyzing commuting patterns, I aimed to identify potential traffic congestion hotspots and 
+                                        better prepare for future changes.</p>
 
                                     <h3>Process</h3>
                                     
-                                    <p>I used an exploratory geo-spatial data analysis to identify areas with the highest commuting flows, 
-                                        based on varying distances and commuting methods. The data used in the analysis came from the 
-                                        Census 2011 as the most complete information on commuting patterns at the time of analysis. The spatial dimension of the set was 
-                                        included through local authority district Shapefiles which I crossed with the Census data.
-                                        These formed the base for creating the maps and Sankey diagrams, which were all produced using 
+                                    <p>To tackle this question, I embarked on an exploratory geo-spatial data analysis to identify areas 
+                                        with the highest commuting flows, taking into account various distances and commuting methods. 
+                                        The most comprehensive data available for this analysis came from the 2011 Census. I combined 
+                                        this data with local authority district Shapefiles, creating a robust foundation for generating 
+                                        maps and Sankey diagrams using the 
                                         <a href="https://ggplot2.tidyverse.org/index.html" target="_blank">ggplot</a> and 
                                         <a href="https://exts.ggplot2.tidyverse.org/ggforce.html" target="_blank">ggforce</a> packages in R.
-
                                     </p>
+                                    <ol>
+                                        <li><b>Data Collection: </b>Utilized the 2011 Census data for detailed commuting information.</li>
+                                        <li><b>Spatial Integration: </b>Mapped the data using local authority district Shapefiles.</li>
+                                        <li><b>Visualization: </b>Created insightful maps and Sankey diagrams with R packages.</li>
+                                    </ol>
                                                                         
                                     <h3>Result</h3>
                                     
-                                    <p>The map of commuters in England shows different means of commuting patterns based on 
-                                        shorter and longer distances. There appears to be relatively low number of commuters using public transport, 
-                                        compared to private vehicle users, which could signalise that those changing from public transportation to private 
-                                        would not cause a great disruption on the roads.</p>
+                                    <p>The resulting map of England's commuters highlighted clear patterns in commuting behavior, segmented 
+                                        by shorter and longer distances. Interestingly, it showed a relatively low number of public transport 
+                                        users compared to private vehicle commuters. This insight suggests that a mass switch from public 
+                                        transport to private cars might not severely disrupt the roads.</p>
                                     <p><img class="img-responsive" alt="" src="./images/data-viz/map_england_census.png"></p>
-                                    <p>A more detailed view is produced for specific areas of England, in this example the area of London. I chose to show
-                                        all local authority districts within 60km from central London.
-                                        The map highlights the districts 
-                                        that have the highest numbers of public transport commuters, which could translate into increased road traffic 
-                                        if the users decided to change the means of commuting. </p>
+                                    <p>Focusing on specific areas like London, I created a more detailed view. By examining local authority 
+                                        districts within a 60km radius of central London, the map pinpointed districts with the highest numbers 
+                                        of public transport commuters. These areas are crucial as they might face increased road traffic if many 
+                                        commuters switch to private cars.</p>
                                     <p><img class="img-responsive" alt="" src="./images/data-viz/sankey_map.png"></p>
-                                    <p>The Sankey diagrams below go even further into detail and display the actual commuter numbers for all travels
-                                        into the central London districts (for sake of simplicity hereafter, I only considered the districts between which 
-                                        the number of trips was above 1000). 
-                                        This information can be simply presented in a table, but using the 
-                                        Sankey plots brings an additional value that can help quickly identify high commuter flows. It is therefore
-                                        a great option to use alongside any structured tabular origin-destination data.<br>
+                                    <p>To delve deeper, I used Sankey diagrams to display actual commuter numbers for travel into central London 
+                                        districts. For clarity, I included only districts with over 1,000 trips. While a table could present 
+                                        this data, Sankey plots offer a dynamic visualization that quickly identifies high commuter flows, 
+                                        making them a valuable tool alongside structured tabular data.<br>
                                         </p>
                                     <div class="row">
                                         <div class="column lg-6 tab-12">
@@ -153,6 +157,9 @@
                                             <p><img class="img-responsive" alt="" src="./images/data-viz/sankey_train.png"></p>
                                         </div>
                                     </div>
+                                    <p>By presenting the data in a visually engaging way, this analysis not only clarifies current commuting 
+                                        patterns but also provides valuable insights for urban planning and traffic management in a 
+                                        post-pandemic world.</p>
 
                                 </div> 
                                 <!-- end entry-content -->
@@ -167,7 +174,7 @@
                                     <div class="post-nav__next">
                                         <a href="R-markdown-report.html" rel="next">
                                             <span>Next</span>
-                                            Automating analytical reports with R Markdown
+                                            Automating Analytical Reports with R Markdown
                                         </a>
                                     </div>
                                 </div>
